@@ -106,7 +106,7 @@ todo-list-supabase/
 
 ### 🔄 Flow de l'Application
 
-```mermaid
+```
 graph TD
     A[Utilisateur] -->|Accède à l'app| B{proxy.ts}
     B -->|Non authentifié| C[/auth/login]
@@ -307,8 +307,7 @@ Ce projet est distribué sous la licence **MIT**. Consultez le fichier [LICENSE]
 **Alberto Kitenge**
 
 - 🌐 GitHub : [@Alberto-Kitenge](https://github.com/Alberto-Kitenge)
-- 💼 Portfolio : [À venir]
-- 📧 Email : [alberto.kitenge@example.com](mailto:alberto.kitenge@example.com)
+- 📧 Email : [kitengewalberto@gmail.com](mailto:kitengewalberto@gmail.com)
 
 ---
 
