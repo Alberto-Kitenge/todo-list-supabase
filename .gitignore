@@ -1,0 +1,207 @@
+# ============================================
+# .gitignore - Todo List Supabase (Next.js)
+# ============================================
+
+# ───────────────────────────────────────────
+# Dependencies
+# ───────────────────────────────────────────
+node_modules/
+/.pnp
+.pnp.*
+.pnp.js
+
+# Yarn
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+.yarn/install-state.gz
+yarn-error.log
+
+# npm
+package-lock.json*
+
+# pnpm
+pnpm-lock.yaml*
+.pnpm-debug.log*
+
+# ───────────────────────────────────────────
+# Next.js
+# ───────────────────────────────────────────
+.next/
+out/
+build/
+dist/
+.vercel
+.turbo
+next-env.d.ts
+
+# Next.js cache
+.next/cache
+.next/server
+.next/static
+
+# ───────────────────────────────────────────
+# TypeScript
+# ───────────────────────────────────────────
+*.tsbuildinfo
+*.d.ts.map
+
+# ───────────────────────────────────────────
+# Testing & Coverage
+# ───────────────────────────────────────────
+coverage/
+.nyc_output/
+*.lcov
+.coverage
+.jest-cache/
+__snapshots__/
+
+# ───────────────────────────────────────────
+# Environment Variables
+# ───────────────────────────────────────────
+.env
+.env.local
+.env*.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# Exception: template example
+!.env.local.example
+!.env.example
+
+# ───────────────────────────────────────────
+# Supabase
+# ───────────────────────────────────────────
+supabase/.temp/
+supabase/.branches/
+.supabase/
+
+# ───────────────────────────────────────────
+# Logs
+# ───────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# ───────────────────────────────────────────
+# Operating System Files
+# ───────────────────────────────────────────
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+.nfs*
+
+# ───────────────────────────────────────────
+# IDEs & Editors
+# ───────────────────────────────────────────
+# VSCode
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+*.code-workspace
+.history/
+
+# JetBrains (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# Visual Studio
+.vs/
+
+# ───────────────────────────────────────────
+# Miscellaneous
+# ───────────────────────────────────────────
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# ───────────────────────────────────────────
+# Warp / Agent Mode
+# ───────────────────────────────────────────
+.agent/
+
+# ───────────────────────────────────────────
+# Optional: Keep these if needed
+# ───────────────────────────────────────────
+# Uncomment if you want to track these files:
+# !package-lock.json
+# !pnpm-lock.yaml
+# !yarn.lock
