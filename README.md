@@ -9,7 +9,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=flat-square&logo=supabase)](https://supabase.com/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v3-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![DaisyUI](https://img.shields.io/badge/DaisyUI-Components-5A0EF8?style=flat-square&logo=daisyui)](https://daisyui.com/)
 
 [📖 Docs](#-documentation) • [🚀 Installation](#-installation) • [✨ Fonctionnalités](#-fonctionnalités) • [🏗️ Architecture](#-architecture)
@@ -20,7 +20,7 @@
 
 ## 🎯 À Propos
 
-**Todo List App** est une application web moderne de gestion de tâches qui combine la puissance de Next.js 15 avec la flexibilité de Supabase. Elle offre une expérience utilisateur fluide avec authentification sécurisée, gestion en temps réel des tâches et une interface élégante construite avec Tailwind CSS v4 et DaisyUI.
+**Todo List App** est une application web moderne de gestion de tâches qui combine la puissance de Next.js 15 avec la flexibilité de Supabase. Elle offre une expérience utilisateur fluide avec authentification sécurisée, gestion en temps réel des tâches et une interface élégante construite avec Tailwind CSS v3 et DaisyUI.
 
 ### 🎨 Caractéristiques Principales
 
@@ -30,7 +30,7 @@
 - 📱 **Responsive Design** - Fonctionne parfaitement sur tous les appareils
 - ⚡ **Temps Réel** - Synchronisation instantanée avec Supabase
 - 🌐 **TypeScript** - Typage fort pour une meilleure expérience développeur
-- 🎨 **Tailwind CSS v4** - Dernière version pour un styling performant
+- 🎨 **Tailwind CSS v3** - Dernière version pour un styling performant
 - 🚀 **Next.js 15** - Avec App Router et Server Components
 
 ---
