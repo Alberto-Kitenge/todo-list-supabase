@@ -33,18 +33,16 @@ export default async function Home() {
           <div className="flex items-center gap-4">
             <Link
               href="/auth/login"
-              className="px-6 py-2 text-sm font-medium hover:text-purple-600 dark:hover:text-purple-400 
+              className="px-6 py-2 text-sm font-medium hover:text-primary 
                        transition-colors"
             >
               Connexion
             </Link>
             <Link
               href="/auth/signup"
-              className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 
-                       text-white font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 
-                       transition-all duration-300"
+              className="btn btn-primary shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
-              S'inscrire
+              S&apos;inscrire
             </Link>
           </div>
         </nav>
@@ -73,20 +71,20 @@ export default async function Home() {
             </div>
 
             <div>
-              <h3 className="font-bold mb-4">Liens Rapides</h3>
+              <h3 className="font-bold text-base-200 mb-4">Liens Rapides</h3>
               <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                 <li>
                   <Link
                     href="/auth/signup"
-                    className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                    className="hover:text-primary transition-colors"
                   >
-                    S'inscrire
+                    S&apos;inscrire
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/auth/login"
-                    className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                    className="hover:text-primary transition-colors"
                   >
                     Se connecter
                   </Link>
@@ -95,7 +93,7 @@ export default async function Home() {
             </div>
 
             <div>
-              <h3 className="font-bold mb-4">Technologie</h3>
+              <h3 className="font-bold text-base-200 mb-4">Technologie</h3>
               <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                 <li>Next.js 15</li>
                 <li>Supabase</li>

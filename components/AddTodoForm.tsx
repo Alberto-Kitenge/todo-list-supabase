@@ -63,7 +63,7 @@ export default function AddTodoForm() {
           <input
             type="text"
             placeholder="Ajouter une nouvelle tâche..."
-            className="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 transition-all duration-300 disabled:opacity-50"
+            className="input input-bordered input-primary w-full focus:ring-4 focus:ring-primary/20 transition-all duration-300 disabled:opacity-50"
             value={name}
             onChange={(e) => setName(e.target.value)}
             onFocus={() => setIsFocused(true)}
@@ -84,8 +84,8 @@ export default function AddTodoForm() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Catégorie */}
         <div className="relative">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            <span className="flex items-center gap-2">
+          <label className="label">
+            <span className="label-text flex items-center gap-2">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -106,7 +106,7 @@ export default function AddTodoForm() {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             disabled={loading}
-            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 transition-all duration-300 disabled:opacity-50"
+            className="select select-bordered select-primary w-full focus:ring-4 focus:ring-primary/20 transition-all duration-300 disabled:opacity-50"
           >
             <option value="">Aucune</option>
             <option value="Travail">💼 Travail</option>
@@ -119,8 +119,8 @@ export default function AddTodoForm() {
 
         {/* Date d'échéance */}
         <div className="relative">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            <span className="flex items-center gap-2">
+          <label className="label">
+            <span className="label-text flex items-center gap-2">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -142,14 +142,14 @@ export default function AddTodoForm() {
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
             disabled={loading}
-            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 transition-all duration-300 disabled:opacity-50"
+            className="input input-bordered input-primary w-full focus:ring-4 focus:ring-primary/20 transition-all duration-300 disabled:opacity-50"
           />
         </div>
 
         {/* Priorité */}
         <div className="relative">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            <span className="flex items-center gap-2">
+          <label className="label">
+            <span className="label-text flex items-center gap-2">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -170,7 +170,7 @@ export default function AddTodoForm() {
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
             disabled={loading}
-            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 transition-all duration-300 disabled:opacity-50"
+            className="select select-bordered select-primary w-full focus:ring-4 focus:ring-primary/20 transition-all duration-300 disabled:opacity-50"
           >
             <option value="">Aucune</option>
             <option value="Haute">🔴 Haute</option>
@@ -183,28 +183,15 @@ export default function AddTodoForm() {
       {/* Bouton Ajouter */}
       <button
         type="submit"
-        className={`w-full px-8 py-4 rounded-xl font-semibold text-white shadow-lg
-                  transition-all duration-300 relative overflow-hidden group
-                  ${
-                    loading
-                      ? "opacity-50 cursor-not-allowed"
-                      : "hover:shadow-xl hover:-translate-y-0.5"
-                  }
-                  ${!name.trim() ? "opacity-50 cursor-not-allowed" : ""}`}
+        className="w-full px-8 py-4 rounded-xl font-semibold text-white shadow-lg transition-all duration-300 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl hover:-translate-y-0.5"
         disabled={loading || !name.trim()}
       >
         {/* Background gradient */}
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 
-                      group-hover:from-purple-500 group-hover:to-blue-500 transition-all duration-300"
-        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent group-hover:brightness-110 transition-all duration-300"></div>
 
         {/* Effet de brillance au hover */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
-                        transform -skew-x-12 group-hover:translate-x-full transition-transform duration-700"
-          ></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 group-hover:translate-x-full transition-transform duration-700"></div>
         </div>
 
         {/* Contenu du bouton */}

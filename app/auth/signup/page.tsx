@@ -149,11 +149,16 @@ export default function SignupPage() {
             <div className="form-control mt-6">
               <button
                 type="submit"
-                className={`btn btn-primary ${loading ? "loading" : ""}`}
+                className="btn btn-primary"
                 disabled={loading || success}
               >
                 {loading ? "Inscription..." : "S'inscrire"}
               </button>
+              {loading && (
+                <div className="flex justify-center mt-4">
+                  <span className="loading loading-spinner loading-md text-primary"></span>
+                </div>
+              )}
             </div>
           </form>
 

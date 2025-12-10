@@ -142,39 +142,21 @@
     animation: scaleIn 0.4s ease-out;
   }
 
-  /* Gradients avec couleurs directes */
+  /* Gradients avec couleurs sémantiques DaisyUI */
   .gradient-primary {
-    background: linear-gradient(
-      135deg,
-      oklch(58% 0.22 269) 0%,
-      oklch(65% 0.22 217) 100%
-    );
+    @apply bg-gradient-to-br from-primary to-accent;
   }
 
   .gradient-secondary {
-    background: linear-gradient(
-      135deg,
-      oklch(65% 0.2 340) 0%,
-      oklch(70% 0.2 25) 100%
-    );
+    @apply bg-gradient-to-br from-secondary to-error;
   }
 
   .gradient-accent {
-    background: linear-gradient(
-      135deg,
-      oklch(70% 0.18 186) 0%,
-      oklch(72% 0.15 158) 100%
-    );
+    @apply bg-gradient-to-br from-accent to-info;
   }
 
   .gradient-animated {
-    background: linear-gradient(
-      -45deg,
-      oklch(58% 0.22 269),
-      oklch(65% 0.22 217),
-      oklch(70% 0.18 186),
-      oklch(72% 0.15 158)
-    );
+    @apply bg-gradient-to-br from-primary via-accent to-secondary;
     background-size: 400% 400%;
     animation: gradient-shift 15s ease infinite;
   }
@@ -206,37 +188,29 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  /* Shadows & Glows */
+  /* Shadows & Glows - Utilisant les couleurs DaisyUI */
   .shadow-glow {
-    box-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
+    @apply shadow-lg shadow-primary/30;
   }
 
   .shadow-colored-primary {
-    box-shadow: 0 10px 30px -5px rgba(124, 58, 237, 0.4);
+    @apply shadow-xl shadow-primary/40;
   }
 
   .shadow-colored-secondary {
-    box-shadow: 0 10px 30px -5px rgba(236, 72, 153, 0.4);
+    @apply shadow-xl shadow-secondary/40;
   }
 
-  /* Text Gradients */
+  /* Text Gradients - Utilisant les couleurs DaisyUI */
   .text-gradient-primary {
-    background: linear-gradient(
-      135deg,
-      oklch(58% 0.22 269) 0%,
-      oklch(65% 0.22 217) 100%
-    );
+    @apply bg-gradient-to-r from-primary to-accent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-secondary {
-    background: linear-gradient(
-      135deg,
-      oklch(65% 0.2 340) 0%,
-      oklch(70% 0.2 25) 100%
-    );
+    @apply bg-gradient-to-r from-secondary to-error;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -254,7 +228,7 @@
   }
 
   .hover-glow:hover {
-    box-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
+    @apply shadow-lg shadow-primary/30;
   }
 
   .hover-scale {

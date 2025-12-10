@@ -93,11 +93,16 @@ export default function LoginPage() {
             <div className="form-control mt-6">
               <button
                 type="submit"
-                className={`btn btn-primary ${loading ? "loading" : ""}`}
+                className="btn btn-primary"
                 disabled={loading}
               >
-                {loading ? "Connexion..." : "Se connecter"}
+                {loading ? "Connexion ..." : "Se connecter"}
               </button>
+              {loading && (
+                <div className="flex justify-center mt-4">
+                  <span className="loading loading-spinner loading-md text-primary"></span>
+                </div>
+              )}
             </div>
           </form>
 

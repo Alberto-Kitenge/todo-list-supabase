@@ -5,7 +5,7 @@
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { User } from "@supabase/supabase-js";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface HeaderProps {
   user: User;
@@ -13,8 +13,26 @@ interface HeaderProps {
 
 export default function Header({ user }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const supabase = createClient();
+
+  // Fermer le menu au clic extérieur
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -43,21 +61,21 @@ export default function Header({ user }: HeaderProps) {
               <h1 className="text-xl font-bold text-gradient-primary">
                 TodoList
               </h1>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-base-content/70">
                 Par Alberto Kitenge
               </p>
             </div>
           </div>
 
           {/* Menu utilisateur */}
-          <div className="relative">
+          <div className="relative" ref={menuRef}>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center gap-3 px-4 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 group"
+              className="flex items-center gap-3 px-4 py-2 rounded-xl hover:text-base-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 group"
             >
               {/* Avatar */}
               <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
                   {getUserInitials()}
                 </div>
                 {/* Indicateur en ligne */}
@@ -66,12 +84,8 @@ export default function Header({ user }: HeaderProps) {
 
               {/* Info utilisateur */}
               <div className="hidden md:block text-left">
-                <p className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                  {user.email}
-                </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Compte actif
-                </p>
+                <p className="text-sm font-semibold">{user.email}</p>
+                <p className="text-xs">Compte actif</p>
               </div>
 
               {/* Icône chevron */}
@@ -100,10 +114,10 @@ export default function Header({ user }: HeaderProps) {
               >
                 {/* Profil */}
                 <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-                  <p className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                  <p className="text-sm font-medium text-gray-900">
                     Connecté en tant que :
                   </p>
-                  <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold mt-1">
+                  <p className="text-sm text-primary font-semibold mt-1">
                     {user.email}
                   </p>
                 </div>

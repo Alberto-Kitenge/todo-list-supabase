@@ -25,6 +25,7 @@ export default async function TodosPage() {
     .from("todos")
     .select("*")
     .eq("user_id", user.id)
+    .order("is_completed", { ascending: true })
     .order("created_at", { ascending: false });
 
   if (error) {

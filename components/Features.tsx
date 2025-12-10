@@ -52,10 +52,7 @@ export default function Features() {
         {/* En-tête */}
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-block mb-4">
-            <span
-              className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 
-                           border border-purple-500/20 text-sm font-medium"
-            >
+            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 text-sm font-medium">
               ✨ Fonctionnalités
             </span>
           </div>
@@ -79,9 +76,7 @@ export default function Features() {
               {/* Icône avec gradient */}
               <div className="mb-4">
                 <div
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl 
-                              bg-gradient-to-br ${feature.gradient} shadow-lg group-hover:scale-110 
-                              transition-transform duration-300`}
+                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}
                 >
                   <span className="text-3xl filter drop-shadow-lg">
                     {feature.icon}
@@ -90,7 +85,7 @@ export default function Features() {
               </div>
 
               {/* Contenu */}
-              <h3 className="text-xl font-bold mb-2 group-hover:text-gradient-primary transition-all">
+              <h3 className="text-xl font-bold mb-2 text-base-300 group-hover:text-gradient-primary transition-all">
                 {feature.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
@@ -98,10 +93,7 @@ export default function Features() {
               </p>
 
               {/* Ligne décorative avec gradient */}
-              <div
-                className="mt-4 h-1 w-0 group-hover:w-full bg-gradient-to-r 
-                            from-purple-500 to-blue-500 rounded-full transition-all duration-500"
-              ></div>
+              <div className="mt-4 h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-500"></div>
             </div>
           ))}
         </div>

@@ -73,8 +73,8 @@ export default function TodoItem({ todo }: TodoItemProps) {
         className={`absolute left-0 top-0 bottom-0 w-1 transition-all duration-300
                       ${
                         todo.is_completed
-                          ? "bg-green-500"
-                          : "bg-gradient-to-b from-purple-500 to-blue-500 group-hover:w-2"
+                          ? "bg-success"
+                          : "bg-gradient-to-b from-primary to-accent group-hover:w-2"
                       }`}
       />
 
@@ -86,7 +86,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
             type="checkbox"
             checked={todo.is_completed}
             onChange={handleToggle}
-            className="w-6 h-6 rounded-full border-2 border-purple-500 appearance-none checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 cursor-pointer transition-all duration-300 hover:scale-110 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            className="w-6 h-6 rounded-full border-2 border-primary appearance-none checked:bg-gradient-to-br checked:from-primary checked:to-accent cursor-pointer transition-all duration-300 hover:scale-110 focus:ring-2 focus:ring-primary focus:ring-offset-2"
             disabled={loading}
           />
           {todo.is_completed && (
@@ -111,8 +111,8 @@ export default function TodoItem({ todo }: TodoItemProps) {
           className={`flex-1 text-lg transition-all duration-300
                      ${
                        todo.is_completed
-                         ? "line-through opacity-60 text-gray-600 dark:text-gray-500"
-                         : "text-gray-800 dark:text-gray-200"
+                         ? "line-through opacity-60 text-base-100"
+                         : "text-base-content"
                      }`}
         >
           {todo.name}
@@ -122,10 +122,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
         <div className="flex items-center gap-2 flex-wrap">
           {/* Badge de catégorie */}
           {todo.category && (
-            <span
-              className="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 
-                         text-blue-700 dark:text-blue-400 animate-fade-in"
-            >
+            <span className="badge badge-info gap-1 animate-fade-in">
               {todo.category === "Travail" && "💼"}
               {todo.category === "Personnel" && "🏠"}
               {todo.category === "Santé" && "💪"}
@@ -137,13 +134,13 @@ export default function TodoItem({ todo }: TodoItemProps) {
           {/* Badge de priorité */}
           {todo.priority && (
             <span
-              className={`px-3 py-1 rounded-full text-xs font-medium animate-fade-in
+              className={`badge gap-1 animate-fade-in
                 ${
                   todo.priority === "Haute"
-                    ? "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400"
+                    ? "badge-error"
                     : todo.priority === "Moyenne"
-                    ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400"
-                    : "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
+                    ? "badge-warning"
+                    : "badge-success"
                 }`}
             >
               {todo.priority === "Haute" && "🔴"}
@@ -155,7 +152,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
           {/* Badge de date d'échéance */}
           {todo.due_date && (
             <span
-              className={`px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1 animate-fade-in
+              className={`badge gap-1 animate-fade-in
                 ${(() => {
                   const today = new Date();
                   today.setHours(0, 0, 0, 0);
@@ -165,11 +162,11 @@ export default function TodoItem({ todo }: TodoItemProps) {
                   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
                   if (diffDays < 0) {
-                    return "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400";
+                    return "badge-error";
                   } else if (diffDays <= 3) {
-                    return "bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400";
+                    return "badge-warning";
                   } else {
-                    return "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400";
+                    return "badge-success";
                   }
                 })()}`}
             >
@@ -183,10 +180,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
 
           {/* Badge de statut complété */}
           {todo.is_completed && (
-            <span
-              className="px-3 py-1 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/30 
-                         text-green-700 dark:text-green-400 animate-fade-in"
-            >
+            <span className="badge badge-success gap-1 animate-fade-in">
               ✓ Complété
             </span>
           )}
@@ -223,7 +217,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
                       flex items-center justify-center"
         >
           <div
-            className="w-6 h-6 border-3 border-purple-500 border-t-transparent 
+            className="w-6 h-6 border-3 border-primary border-t-transparent 
                         rounded-full animate-spin"
           ></div>
         </div>

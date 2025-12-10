@@ -150,8 +150,8 @@ export default function TodoList({ todos }: TodoListProps) {
         </div>
       </div>
 
-      {/* Liste des todos */}
-      <div className="space-y-3">
+      {/* Liste des todos avec scroll */}
+      <div className="max-h-[600px] overflow-y-auto space-y-3 pr-2 custom-scrollbar">
         {todos.map((todo, index) => (
           <div
             key={todo.id}
