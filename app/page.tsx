@@ -93,7 +93,7 @@ export default async function Home() {
             </div>
 
             <div>
-              <h3 className="font-bold text-base-200 mb-4">Technologie</h3>
+              <h3 className="font-bold text-base-200 mb-4">Technologies</h3>
               <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                 <li>Next.js 15</li>
                 <li>Supabase</li>
