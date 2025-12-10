@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" data-theme="business">
+    <html lang="fr" data-theme="business-premium">
       <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
       </body>

@@ -9,7 +9,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=flat-square&logo=supabase)](https://supabase.com/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v3-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![DaisyUI](https://img.shields.io/badge/DaisyUI-Components-5A0EF8?style=flat-square&logo=daisyui)](https://daisyui.com/)
 
 [📖 Docs](#-documentation) • [🚀 Installation](#-installation) • [✨ Fonctionnalités](#-fonctionnalités) • [🏗️ Architecture](#-architecture)
@@ -20,7 +20,7 @@
 
 ## 🎯 À Propos
 
-**Todo List App** est une application web moderne de gestion de tâches qui combine la puissance de Next.js 15 avec la flexibilité de Supabase. Elle offre une expérience utilisateur fluide avec authentification sécurisée, gestion en temps réel des tâches et une interface élégante construite avec Tailwind CSS v4 et DaisyUI.
+**Todo List App** est une application web moderne de gestion de tâches qui combine la puissance de Next.js 15 avec la flexibilité de Supabase. Elle offre une expérience utilisateur fluide avec authentification sécurisée, gestion en temps réel des tâches et une interface élégante construite avec Tailwind CSS v3 et DaisyUI.
 
 ### 🎨 Caractéristiques Principales
 
@@ -30,7 +30,7 @@
 - 📱 **Responsive Design** - Fonctionne parfaitement sur tous les appareils
 - ⚡ **Temps Réel** - Synchronisation instantanée avec Supabase
 - 🌐 **TypeScript** - Typage fort pour une meilleure expérience développeur
-- 🎨 **Tailwind CSS v4** - Dernière version pour un styling performant
+- 🎨 **Tailwind CSS v3** - Dernière version pour un styling performant
 - 🚀 **Next.js 15** - Avec App Router et Server Components
 
 ---
@@ -46,8 +46,11 @@
 
 ### 📋 Gestion des Tâches
 
-- **Créer** : Ajout de nouvelles tâches
-- **Lire** : Affichage de toutes vos tâches
+- **Créer** : Ajout de nouvelles tâches avec attributs enrichis
+- **Catégoriser** : Classer vos tâches (Travail, Personnel, Santé, Études, Autres)
+- **Prioriser** : Définir le niveau d'importance (Haute, Moyenne, Basse)
+- **Planifier** : Fixer des dates d'échéance avec indicateurs visuels
+- **Lire** : Affichage de toutes vos tâches avec badges colorés
 - **Modifier** : Édition du nom et du statut
 - **Supprimer** : Suppression de tâches
 - **Marquer comme complété** : Toggle du statut is_completed
@@ -124,9 +127,12 @@ graph TD
 
 | Colonne        | Type      | Description                          |
 | -------------- | --------- | ------------------------------------ |
-| `id`           | UUID      | Identifiant unique (PK)              |
+| `id`           | NUMBER    | Identifiant unique (PK)              |
 | `user_id`      | UUID      | Référence à auth.users (FK)          |
 | `name`         | TEXT      | Nom de la tâche                      |
+| `category`     | TEXT      | Catégorie (nullable)                 |
+| `due_date`     | TEXT      | Date d'échéance (nullable)           |
+| `priority`     | TEXT      | Priorité : Haute/Moyenne/Basse       |
 | `is_completed` | BOOLEAN   | Statut de complétion (défaut: false) |
 | `created_at`   | TIMESTAMP | Date de création                     |
 
@@ -177,9 +183,12 @@ Exécutez ce SQL dans l'éditeur SQL de Supabase :
 ```sql
 -- Créer la table todos
 CREATE TABLE todos (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  id BIGSERIAL PRIMARY KEY,
   user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
   name TEXT NOT NULL,
+  category TEXT,
+  due_date TEXT,
+  priority TEXT,
   is_completed BOOLEAN DEFAULT false NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL
 );
@@ -239,14 +248,18 @@ Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur 🎉
 
 ### 🛠️ Technologies Utilisées
 
-| Technologie      | Version | Description                 |
-| ---------------- | ------- | --------------------------- |
-| **Next.js**      | 15.x    | Framework React full-stack  |
-| **TypeScript**   | 5.x     | Typage statique             |
-| **Supabase**     | Latest  | Backend-as-a-Service (BaaS) |
-| **Tailwind CSS** | 4.x     | Framework CSS utility-first |
-| **DaisyUI**      | Latest  | Composants UI pour Tailwind |
-| **Poppins**      | -       | Police Google Fonts         |
+| Technologie      | Version | Description                       |
+| ---------------- | ------- | --------------------------------- |
+| **Next.js**      | 16.0.7  | Framework React full-stack        |
+| **React**        | 19.2.0  | Bibliothèque UI                   |
+| **TypeScript**   | 5.x     | Typage statique                   |
+| **Supabase JS**  | 2.86.2  | Client Supabase                   |
+| **Supabase SSR** | 0.8.0   | Helper SSR pour Supabase          |
+| **Tailwind CSS** | 3.4.17  | Framework CSS utility-first       |
+| **DaisyUI**      | 4.12.14 | Composants UI pour Tailwind       |
+| **PostCSS**      | 8.4.49  | Outil de transformation CSS       |
+| **Autoprefixer** | 10.4.20 | Ajout automatique de préfixes CSS |
+| **Poppins**      | -       | Police Google Fonts               |
 
 ### 🔄 Gestion du State
 
