@@ -15,7 +15,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden md:px-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-5 md:px-20">
       {/* Background avec gradient animé */}
       <div className="absolute inset-0 gradient-animated opacity-20 -z-10"></div>
 
