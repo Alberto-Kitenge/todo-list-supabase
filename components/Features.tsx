@@ -108,8 +108,8 @@ export default function Features() {
               Prêt à booster votre productivité ?
             </h3>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-              Rejoignez des milliers d'utilisateurs qui organisent leur vie avec
-              notre app
+              Rejoignez des milliers d&apos;utilisateurs qui organisent leur vie
+              avec notre app
             </p>
             <a
               href="/auth/signup"
